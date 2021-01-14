@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import BugPage from '../pages/bugpage';
 import FishPage from '../pages/fishpage';
 import SeaPage from '../pages/seapage';
+import HomePage from '../pages/homepage';
 
 export default class Menu extends Component {
     render() {
@@ -12,6 +13,9 @@ export default class Menu extends Component {
                 <Router>
                     <nav>
                         <ul>
+                            <li className="slide-toggle">
+                                <Link to="/">home</Link>
+                            </li>
                             <li className="slide-toggle">
                                 <Link to="/fishpage">fishes</Link>
                             </li>
@@ -24,6 +28,7 @@ export default class Menu extends Component {
                         </ul>
                     </nav>
                     <Switch>
+
                         <Route path='/fishpage'>
                             <FishPage />
                         </Route>
@@ -32,6 +37,9 @@ export default class Menu extends Component {
                         </Route>
                         <Route path='/seapage'>
                             <SeaPage />
+                        </Route>
+                        <Route path='/'>
+                            <HomePage />
                         </Route>
                     </Switch>
                 </Router>
