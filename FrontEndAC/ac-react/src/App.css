@@ -3,7 +3,11 @@ body {
   color: white;
 
 }
-img{
+.image{
+  display:inline-block;
+  max-height:300px;
+}
+.icon{
   width:50px;
   padding-right: 30px;
 }
@@ -58,7 +62,9 @@ img{
   color:#cf4c83;
 }
 
-
+a {
+  text-decoration:none;
+}
 
 nav {
   max-width: 1960px;
@@ -89,4 +95,19 @@ nav ul li a:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px black;
   background: #121212;
   color:#cf4c83;
+}
+
+
+
+th, td {
+  width:200px;
+  
+}
+
+
+
+.infoDiv{
+  text-align:center;
+  display: inline-block;
+  height:380px;
 }

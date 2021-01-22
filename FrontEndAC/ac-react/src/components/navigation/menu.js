@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import BugPage from '../pages/bugpage';
-import FishPage from '../pages/fishpage';
-import SeaPage from '../pages/seapage';
+import BugPage from '../pages/bugs/bugpage';
+import FishPage from '../pages/fishes/fishpage';
+import SeaPage from '../pages/sea creatures/seapage';
 import HomePage from '../pages/homepage';
+import FavouritesPage from '../pages/favouritespage';
+import FishInfoPage from '../pages/fishes/fishinfo';
 
 export default class Menu extends Component {
     render() {
@@ -17,26 +19,35 @@ export default class Menu extends Component {
                                 <Link to="/">home</Link>
                             </li>
                             <li className="slide-toggle">
-                                <Link to="/fishpage">fishes</Link>
+                                <Link to="/fishes">fishes</Link>
                             </li>
                             <li className="slide-toggle">
-                                <Link to="/bugpage">bugs</Link>
+                                <Link to="/bugs">bugs</Link>
                             </li>
                             <li className="slide-toggle">
-                                <Link to='/seapage'>sea creatures</Link>
+                                <Link to='/seacreatures'>sea creatures</Link>
+                            </li>
+                            <li className="slide-toggle">
+                                <Link to='/favourites'>favourites</Link>
                             </li>
                         </ul>
                     </nav>
                     <Switch>
 
-                        <Route path='/fishpage'>
+                        <Route path='/fishes'>
                             <FishPage />
                         </Route>
-                        <Route path='/bugpage'>
+                        <Route path='/bugs'>
                             <BugPage />
                         </Route>
-                        <Route path='/seapage'>
+                        <Route path='/seacreatures'>
                             <SeaPage />
+                        </Route>
+                        <Route path='/favourites'>
+                            <FavouritesPage />
+                        </Route>
+                        <Route path='/fishinfo'>
+                            <FishInfoPage />
                         </Route>
                         <Route path='/'>
                             <HomePage />
