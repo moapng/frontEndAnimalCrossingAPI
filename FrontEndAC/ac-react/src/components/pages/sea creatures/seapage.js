@@ -20,6 +20,7 @@ export default class SeaPage extends Component {
 
     handleClick(sea) {
         console.log(sea.id, sea.name['name-USen']);
+        document.getElementById('infoDiv').style.display = 'block';
         this.setState({
             seaId: sea.id,
             name: sea.name['name-USen'],
@@ -28,7 +29,8 @@ export default class SeaPage extends Component {
             rarity: sea.availability.rarity,
             image: sea['image_uri']
         });
-
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
     SeaCreatures = () => {
         let items = Object.values(this.state.sea).map((sea) => (

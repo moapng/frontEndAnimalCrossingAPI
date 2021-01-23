@@ -5,7 +5,7 @@ import FishPage from '../pages/fishes/fishpage';
 import SeaPage from '../pages/sea creatures/seapage';
 import HomePage from '../pages/homepage';
 import FavouritesPage from '../pages/favouritespage';
-import FishInfoPage from '../pages/fishes/fishinfo';
+import FishInfoTest from '../pages/fishes/fishinfotest';
 
 export default class Menu extends Component {
     render() {
@@ -46,9 +46,8 @@ export default class Menu extends Component {
                         <Route path='/favourites'>
                             <FavouritesPage />
                         </Route>
-                        <Route path='/fishinfo'>
-                            <FishInfoPage />
-                        </Route>
+                        <Route path='/fishinfotest/:fishId' fishId='FishInfoTest' component={FishInfoTest} />
+
                         <Route path='/'>
                             <HomePage />
                         </Route>

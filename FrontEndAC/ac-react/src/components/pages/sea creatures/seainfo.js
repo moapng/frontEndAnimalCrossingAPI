@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class SeaInfo extends Component {
     render() {
         return (
-            <div className='infoDiv'>
+            <div id='infoDiv'>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -18,6 +18,7 @@ export default class SeaInfo extends Component {
                     <td>Months {this.props.availability}</td>
                     <td>{this.props.rarity}</td>
                 </table>
+                <p>{this.props.catchphrase}</p>
                 <img className='image' src={this.props.image} />
             </div>
 

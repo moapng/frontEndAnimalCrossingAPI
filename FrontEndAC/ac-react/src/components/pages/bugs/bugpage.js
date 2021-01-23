@@ -20,14 +20,19 @@ export default class BugPage extends Component {
     }
     handleClick(bug) {
         console.log(bug.id, bug.name['name-USen']);
+        document.getElementById('infoDiv').style.display = 'block';
         this.setState({
             bugId: bug.id,
             name: bug.name['name-USen'],
             price: bug.price,
             availability: bug.availability['month-northern'],
             rarity: bug.availability.rarity,
-            image: bug['image_uri']
+            image: bug['image_uri'],
+            catchphrase: bug['catch-phrase'],
+            location: bug.availability.location
         });
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
 
     }
     Bugs = () => {
@@ -46,7 +51,9 @@ export default class BugPage extends Component {
                     price={this.state.price}
                     availability={this.state.availability}
                     rarity={this.state.rarity}
-                    image={this.state.image}></BugInfo>
+                    image={this.state.image}
+                    catchphrase={this.state.catchphrase}
+                    location={this.state.location}></BugInfo>
                 <this.Bugs />
 
             </div>

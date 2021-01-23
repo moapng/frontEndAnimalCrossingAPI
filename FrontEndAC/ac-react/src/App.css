@@ -100,14 +100,22 @@ nav ul li a:hover {
 
 
 th, td {
-  width:200px;
+  width:300px;
+  color:#eb96ba;
+  
+}
+#extraWide{
+  width:500px;
+}
+
+p{
+  font-size:25px;
   
 }
 
-
-
-.infoDiv{
+#infoDiv{
   text-align:center;
-  display: inline-block;
+  display: none;
   height:380px;
+
 }
