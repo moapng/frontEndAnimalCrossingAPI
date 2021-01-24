@@ -17,7 +17,17 @@ export default class FishPage extends Component {
                 console.log(data);
                 this.setState({ fish: data });
             });
-
+    }
+    saveFishToFavourites() {
+        fetch('https://localhost:44390/favourites',
+            {
+                method: 'POST',
+                body: JSON.stringify({
+                    fishId: this.state.fishId,
+                    name: this.state.name
+                }),
+                headers: { 'Content-type': 'application/json; charset=UTF-8' }
+            });
     }
     handleClick(fish) {
         console.log(fish.id, fish['catch-phrase']);
@@ -30,8 +40,10 @@ export default class FishPage extends Component {
             rarity: fish.availability.rarity,
             image: fish['image_uri'],
             catchphrase: fish['catch-phrase'],
-            shadowSize: fish.shadow
+            shadowSize: fish.shadow,
+            location: fish.availability.location
         });
+        this.saveFishToFavourites();
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
 
@@ -54,7 +66,8 @@ export default class FishPage extends Component {
                     rarity={this.state.rarity}
                     image={this.state.image}
                     catchphrase={this.state.catchphrase}
-                    shadowSize={this.state.shadowSize}></FishInfo>
+                    shadowSize={this.state.shadowSize}
+                    location={this.state.location}></FishInfo>
                 <this.Fishes />
 
             </div>

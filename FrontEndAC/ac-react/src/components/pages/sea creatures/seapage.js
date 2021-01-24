@@ -26,8 +26,9 @@ export default class SeaPage extends Component {
             name: sea.name['name-USen'],
             price: sea.price,
             availability: sea.availability['month-northern'],
-            rarity: sea.availability.rarity,
-            image: sea['image_uri']
+            image: sea['image_uri'],
+            shadowSize: sea.shadow,
+            speed: sea.speed
         });
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
@@ -47,8 +48,9 @@ export default class SeaPage extends Component {
                     name={this.state.name}
                     price={this.state.price}
                     availability={this.state.availability}
-                    rarity={this.state.rarity}
-                    image={this.state.image}></SeaInfo>
+                    image={this.state.image}
+                    shadowSize={this.state.shadowSize}
+                    speed={this.state.speed}></SeaInfo>
                 <this.SeaCreatures />
 
             </div>

@@ -11,6 +11,7 @@ export default class FishInfo extends Component {
                         <th>Selling price</th>
                         <th>Availability</th>
                         <th>Rarity</th>
+                        <th>Location</th>
                         <th>Shadow-size</th>
 
                     </tr>
@@ -19,6 +20,7 @@ export default class FishInfo extends Component {
                     <td>{this.props.price}</td>
                     <td>Months {this.props.availability}</td>
                     <td>{this.props.rarity}</td>
+                    <td>{this.props.location}</td>
                     <td>{this.props.shadowSize}</td>
 
                 </table>
