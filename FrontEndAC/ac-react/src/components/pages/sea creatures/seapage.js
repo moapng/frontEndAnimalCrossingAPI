@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import SeaInfo from './seainfo';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class SeaPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { sea: [] };
+        this.state = { sea: {} };
     }
     componentDidMount() {
-        this.fetchSeaCreatures();
+        this.fetchSea();
     }
-    fetchSeaCreatures() {
+    fetchSea() {
         fetch('https://localhost:44390/Sea')
             .then((response) => response.json())
             .then((data) => {
@@ -20,37 +20,23 @@ export default class SeaPage extends Component {
 
     handleClick(sea) {
         console.log(sea.id, sea.name['name-USen']);
-        document.getElementById('infoDiv').style.display = 'block';
         this.setState({
             seaId: sea.id,
-            name: sea.name['name-USen'],
-            price: sea.price,
-            availability: sea.availability['month-northern'],
-            image: sea['image_uri'],
-            shadowSize: sea.shadow,
-            speed: sea.speed
         });
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
     }
     SeaCreatures = () => {
         let items = Object.values(this.state.sea).map((sea) => (
-
-            <li className="listItem" key={sea.id} seaId={sea.id} onClick={() => this.handleClick(sea)}>
-                <img className='icon' src={sea["icon_uri"]} />{sea.name['name-USen']}</li>
+            <Link to={'seainfo/' + sea.id}>
+                <li className="listItem" key={sea.id} seaId={sea.id} onClick={() => this.handleClick(sea)}>
+                    <img className='icon' src={sea["icon_uri"]} />{sea.name['name-USen']}</li>
+            </Link>
         ));
         return <ul className="ul">{items}</ul>;
     };
     render() {
         return (
             <div>
-                <SeaInfo seaId={this.state.seaId}
-                    name={this.state.name}
-                    price={this.state.price}
-                    availability={this.state.availability}
-                    image={this.state.image}
-                    shadowSize={this.state.shadowSize}
-                    speed={this.state.speed}></SeaInfo>
+
                 <this.SeaCreatures />
 
             </div>

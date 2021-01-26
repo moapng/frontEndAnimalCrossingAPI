@@ -5,7 +5,9 @@ import FishPage from '../pages/fishes/fishpage';
 import SeaPage from '../pages/sea creatures/seapage';
 import HomePage from '../pages/homepage';
 import FavouritesPage from '../pages/favouritespage';
-import FishInfoTest from '../pages/fishes/fishinfotest';
+import FishInfo from '../pages/fishes/fishinfo';
+import BugInfo from '../pages/bugs/buginfo';
+import SeaInfo from '../pages/sea creatures/seainfo';
 
 export default class Menu extends Component {
     render() {
@@ -25,7 +27,7 @@ export default class Menu extends Component {
                                 <Link to="/bugs">bugs</Link>
                             </li>
                             <li className="slide-toggle">
-                                <Link to='/seacreatures'>sea creatures</Link>
+                                <Link to='/sea'>sea creatures</Link>
                             </li>
                             <li className="slide-toggle">
                                 <Link to='/favourites'>favourites</Link>
@@ -34,23 +36,14 @@ export default class Menu extends Component {
                     </nav>
                     <Switch>
 
-                        <Route path='/fishes'>
-                            <FishPage />
-                        </Route>
-                        <Route path='/bugs'>
-                            <BugPage />
-                        </Route>
-                        <Route path='/seacreatures'>
-                            <SeaPage />
-                        </Route>
-                        <Route path='/favourites'>
-                            <FavouritesPage />
-                        </Route>
-                        <Route path='/fishinfotest/:fishId' fishId='FishInfoTest' component={FishInfoTest} />
-
-                        <Route path='/'>
-                            <HomePage />
-                        </Route>
+                        <Route path='/fishes' component={FishPage} />
+                        <Route path='/bugs' component={BugPage} />
+                        <Route path='/sea' component={SeaPage} />
+                        <Route path='/favourites' component={FavouritesPage} />
+                        <Route path='/fishinfo/:fishId' component={FishInfo} />
+                        <Route path='/buginfo/:bugId' component={BugInfo} />
+                        <Route path='/seainfo/:seaId' component={SeaInfo} />
+                        <Route path='/' component={HomePage} />
                     </Switch>
                 </Router>
             </>

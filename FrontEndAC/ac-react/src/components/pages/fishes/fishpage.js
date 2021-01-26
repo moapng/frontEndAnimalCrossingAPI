@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FishInfo from './fishinfo';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 export default class FishPage extends Component {
     constructor(props) {
@@ -18,56 +18,26 @@ export default class FishPage extends Component {
                 this.setState({ fish: data });
             });
     }
-    saveFishToFavourites() {
-        fetch('https://localhost:44390/favourites',
-            {
-                method: 'POST',
-                body: JSON.stringify({
-                    fishId: this.state.fishId,
-                    name: this.state.name
-                }),
-                headers: { 'Content-type': 'application/json; charset=UTF-8' }
-            });
-    }
     handleClick(fish) {
-        console.log(fish.id, fish['catch-phrase']);
-        document.getElementById('infoDiv').style.display = 'block';
+        console.log(fish.id);
         this.setState({
-            fishId: fish.id,
-            name: fish.name['name-USen'],
-            price: fish.price,
-            availability: fish.availability['month-northern'],
-            rarity: fish.availability.rarity,
-            image: fish['image_uri'],
-            catchphrase: fish['catch-phrase'],
-            shadowSize: fish.shadow,
-            location: fish.availability.location
+            fishId: fish.id
         });
-        this.saveFishToFavourites();
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
 
     }
     Fishes = () => {
         let items = Object.values(this.state.fish).map((fish) => (
-
-            <li className='listItem' key={fish.id} fishId={fish.id} onClick={() => this.handleClick(fish)}>
-                <img className='icon' src={fish['icon_uri']} />{fish.name['name-USen']}</li>
+            <Link to={'fishinfo/' + fish.id}>
+                <li className='listItem' key={fish.id} fishId={fish.id} onClick={() => this.handleClick(fish)}>
+                    <img className='icon' src={fish['icon_uri']} />{fish.name['name-USen']}</li>
+            </Link>
         ));
         return <ul className='ul'>{items}</ul>;
     };
     render() {
         return (
             <div>
-                <FishInfo fishId={this.state.fishId}
-                    name={this.state.name}
-                    price={this.state.price}
-                    availability={this.state.availability}
-                    rarity={this.state.rarity}
-                    image={this.state.image}
-                    catchphrase={this.state.catchphrase}
-                    shadowSize={this.state.shadowSize}
-                    location={this.state.location}></FishInfo>
+
                 <this.Fishes />
 
             </div>
