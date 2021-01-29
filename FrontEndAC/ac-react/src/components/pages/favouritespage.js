@@ -18,9 +18,9 @@ export default class FavouritesPage extends Component {
             });
     }
     Favourites = () => {
-        let items = (this.state.favourites).map((favourites) => (
+        let items = Object.values(this.state.favourites).map((favourites) => (
 
-            <li key={this.state.favourites.name}>{favourites.name}</li>
+            <li className='listItem' key={this.state.favourites.id}>{favourites.name}</li>
         ));
 
         return (

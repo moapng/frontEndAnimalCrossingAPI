@@ -10,7 +10,6 @@ export default class FishPage extends Component {
         this.fetchFish();
     }
     fetchFish() {
-
         fetch('https://localhost:44390/Fish')
             .then((response) => response.json())
             .then((data) => {

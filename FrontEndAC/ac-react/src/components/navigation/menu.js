@@ -17,25 +17,24 @@ export default class Menu extends Component {
                 <Router>
                     <nav>
                         <ul>
-                            <li className="slide-toggle">
+                            <li>
                                 <Link to="/">home</Link>
                             </li>
-                            <li className="slide-toggle">
+                            <li>
                                 <Link to="/fishes">fishes</Link>
                             </li>
-                            <li className="slide-toggle">
+                            <li>
                                 <Link to="/bugs">bugs</Link>
                             </li>
-                            <li className="slide-toggle">
+                            <li>
                                 <Link to='/sea'>sea creatures</Link>
                             </li>
-                            <li className="slide-toggle">
+                            <li>
                                 <Link to='/favourites'>favourites</Link>
                             </li>
                         </ul>
                     </nav>
                     <Switch>
-
                         <Route path='/fishes' component={FishPage} />
                         <Route path='/bugs' component={BugPage} />
                         <Route path='/sea' component={SeaPage} />

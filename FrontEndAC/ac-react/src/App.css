@@ -4,8 +4,7 @@ body {
 
 }
 .image{
-  display:inline-block;
-  max-height:300px;
+  max-height:350px;
 }
 .icon{
   width:50px;
@@ -38,6 +37,7 @@ body {
   padding: 12px 0;
   box-sizing: border-box;
   text-transform:lowercase;
+  text-decoration:none;
 }
 
 /* Element counter */
@@ -62,9 +62,11 @@ body {
   color:#cf4c83;
 }
 
-a {
+a{
   text-decoration:none;
+  color:white;
 }
+
 
 nav {
   max-width: 1960px;
@@ -113,9 +115,8 @@ p{
   
 }
 
-#infoDiv{
-  text-align:center;
-  display: none;
-  height:380px;
-
+#infoText{
+  max-width:900px;
+  font-size:20px;
+  margin: auto;
 }
