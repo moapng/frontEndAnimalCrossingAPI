@@ -18,16 +18,8 @@ export default class FishInfoTest extends Component {
                 console.log(data);
             });
     }
-    saveFishToFavourites() {
-        fetch('https://localhost:44390/favourites',
-            {
-                method: 'POST',
-                body: JSON.stringify({
-                    name: this.state.item.name
-                }),
-                headers: { 'Content-type': 'application/json; charset=UTF-8' }
-            });
-    }
+    
+    
     displayMonths() {
         if (this.state.item.months == "") {
             return "All year"
@@ -72,11 +64,8 @@ export default class FishInfoTest extends Component {
                 <p>{this.state.item['catch-phrase']} </p>
                 <img className='image' src={this.state.item['image_uri']} />
                 <div id='infoText'>{this.state.item['museum-phrase']}</div>
-                <button onClick={this.saveFishToFavourites()}>add to favourites</button>
+
             </div>
-
-
-
         );
     }
 }

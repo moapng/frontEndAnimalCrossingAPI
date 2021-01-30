@@ -17,6 +17,7 @@ export default class FishPage extends Component {
                 this.setState({ fish: data });
             });
     }
+    
     handleClick(fish) {
         console.log(fish.id);
         this.setState({

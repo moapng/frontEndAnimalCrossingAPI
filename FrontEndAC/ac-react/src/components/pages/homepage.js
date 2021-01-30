@@ -5,7 +5,8 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
-                home sweet home
+                <p>Check out the different creatures you can find in 
+                    Animal Crossing: New Horizons by using the navigation menu above!</p>
             </div>
         );
     }

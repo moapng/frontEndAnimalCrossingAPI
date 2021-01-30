@@ -29,16 +29,14 @@ export default class Menu extends Component {
                             <li>
                                 <Link to='/sea'>sea creatures</Link>
                             </li>
-                            <li>
-                                <Link to='/favourites'>favourites</Link>
-                            </li>
+                            
                         </ul>
                     </nav>
                     <Switch>
                         <Route path='/fishes' component={FishPage} />
                         <Route path='/bugs' component={BugPage} />
                         <Route path='/sea' component={SeaPage} />
-                        <Route path='/favourites' component={FavouritesPage} />
+                        
                         <Route path='/fishinfo/:fishId' component={FishInfo} />
                         <Route path='/buginfo/:bugId' component={BugInfo} />
                         <Route path='/seainfo/:seaId' component={SeaInfo} />
